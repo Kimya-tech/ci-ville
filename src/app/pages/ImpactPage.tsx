@@ -1,0 +1,45 @@
+import { BarChart3 } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Features } from '../components/Features';
+import { useLanguage } from '../contexts/LanguageContext';
+
+export function ImpactPage() {
+  const { t } = useLanguage();
+
+  return (
+    <main>
+      <section className="pt-28 pb-12 bg-gradient-to-br from-[#0f2f41] via-[#1F6FA5] to-[#3FA0D6] text-white overflow-hidden">
+        <div className="max-w-[1920px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+          <div className="max-w-4xl">
+            <motion.div
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <BarChart3 className="w-4 h-4" />
+              <span>{t('nav.impact')}</span>
+            </motion.div>
+            <motion.h1
+              className="text-4xl lg:text-6xl mb-5"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              {t('impact.pageTitle')}
+            </motion.h1>
+            <motion.p
+              className="text-lg lg:text-xl text-white/85 max-w-3xl leading-relaxed"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              {t('impact.pageSubtitle')}
+            </motion.p>
+          </div>
+        </div>
+      </section>
+      <Features />
+    </main>
+  );
+}
